@@ -1,0 +1,18 @@
+1.org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException:
+
+解决办法：1.可能数据库连接参数出现了问题
+         2.可能mapper.xml语句出现了错误
+         3.可能mapper类的参数问题，参数大于两个时使用@param注解限定名称
+
+2.MySQL在高版本需要指明是否进行SSL连接。
+    SSL协议提供服务主要：
+           1）认证用户服务器，确保数据发送到正确的服务器； 　　 .
+           2）加密数据，防止数据传输途中被窃取使用；
+           3）维护数据完整性，验证数据在传输过程中是否丢失；
+
+       当前支持SSL协议两层：
+       	 	SSL记录协议（SSL Record Protocol）：建立靠传输协议（TCP）高层协议提供数据封装、压缩、加密等基本功能支持
+    	    SSL握手协议（SSL Handshake Protocol）：建立SSL记录协议用于实际数据传输始前通讯双进行身份认证、协商加密
+    	    算法、 交换加密密钥等。
+
+    您需要通过设置useSSL=false显式禁用SSL，       或者设置useSSL=true并为“服务器证书验证提供信任存储”
